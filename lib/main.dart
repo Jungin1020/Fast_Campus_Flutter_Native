@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:todo_app/model/todo.dart';
 
-void main() {
-  Hive.initFlutter();
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(ToDoAdapter());
+  await Hive.openBox<ToDo>('todoBox');
   runApp(const MyApp());
 }
 
