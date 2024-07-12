@@ -45,3 +45,19 @@ class ToDoAdapter extends TypeAdapter<ToDo> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+ToDo _$ToDoFromJson(Map<String, dynamic> json) => ToDo(
+      id: json['_id'] as String,
+      text: json['text'] as String,
+      completed: json['completed'] as bool? ?? false,
+    );
+
+Map<String, dynamic> _$ToDoToJson(ToDo instance) => <String, dynamic>{
+      '_id': instance.id,
+      'text': instance.text,
+      'completed': instance.completed,
+    };
